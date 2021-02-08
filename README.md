@@ -27,10 +27,12 @@ I will be coding this program in C++. This project is designed to help me unders
 
 ## Features
 List of features ready and TODOs for future development
- 
+
 
 To-do list
- 
+* Morsecode encoder and decoder
+* Caeser cypher encoder and decoder with adjustable offset
+* Morsecode bits decoder
 
 ## Status
 Project is _in progress_
