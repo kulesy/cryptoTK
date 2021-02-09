@@ -2,6 +2,4 @@
 #include <string>
 #include <vector>
 
-class Caeser {
-    
-}
+std::string morseEncode(std::string message);
