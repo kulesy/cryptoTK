@@ -36,29 +36,45 @@ std::string morseDecode(std::string message) {
     int spaces = 0;
     std::vector<std::string> morseUnits = {};
     std::string unit = "";
+
     for (int i = 0 ; i < message.size() ; i++) {
-        if (message[i] == alphabet[26]) {
-            for (int j = i ; message[i] == alphabet[26] ; i++) {
-                spaces += 1;
+        if (message[i] != ' ') {
+            unit += message[i];
+        }
+        else if (message[i] == ' ') {
+
+            while (message[i] == ' ') {
+                spaces++;
+                i++;
             }
             if (spaces == 1) {
                 morseUnits.push_back(unit);
-                spaces = 0;
             }
 
             else if (spaces == 3) {
-                i += 3;
+                morseUnits.push_back(unit);
                 morseUnits.push_back("   ");
-                spaces = 0;
+            }
+            unit = "";
+            spaces = 0;
+            i--;
+        }  
+    }
+    morseUnits.push_back(unit);
+
+    for (int i = 0 ; i < morseUnits.size() ; i++) {
+        for (int j = 0 ; j < morse.size() ; j++) {
+            if (morseUnits[i] == morse[j]) {
+                decodedMessage += alphabet[j];
+                break;
+            }
+            else if (morseUnits[i] == "   ") {
+                decodedMessage += " ";
+                break;
             }
         }
-        else if (message[i] != alphabet[26]) {
-            unit += message[i];
-        }
     }
-    
-    
 
-    
+    return decodedMessage;
 }
 

@@ -5,5 +5,5 @@
 
 
 int main(){
-    std::cout << morseEncode("hello there") << "\n";
+    std::cout << morseDecode(morseEncode("hello there matey i have a question")) << "\n";
 }
